@@ -146,6 +146,7 @@ body {
     }
     .navbar-mobile {
         display: block;
+        clear: both;
     }
     .content {
         flex-direction: column;
