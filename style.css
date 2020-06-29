@@ -151,4 +151,62 @@ body {
     .content {
         flex-direction: column;
     }
+ 
 }
+
+@media only screen and (max-width:870px) {
+
+    .nomobi {
+       
+        
+        display: none;
+        clear: both;
+    }
+    .Blutonium {
+        width: 260;
+    }
+}
+@media only screen and (min-width:870px) {
+    .nomobi {
+       
+        
+        display: inline-block;
+        clear: both;
+    }
+    .Blutonium {
+        width: 90%; max-width: 450;
+    }
+}
+.Blutonium {
+
+    max-height: 75px; height: 100%;
+    border-radius: 20px;
+    background-color: #464649;
+
+}
+
+.Blutonium #text {
+  
+    display: inline-block;
+    padding-left: 10px;
+   
+}
+
+.Blutonium #para {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.lol {
+    text-decoration: none;
+    color: white;
+}
+
+
+.Blutonium #image {
+    float: left;
+    max-width: 75px; width: 50%;
+    
+}
+
+
