@@ -1,0 +1,43 @@
+RewriteEngine on
+RewriteBase /
+
+<FilesMatch "\.(html|htm|js|css)$">
+  FileETag None
+  <IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 12 Jan 1980 05:00:00 GMT"
+  </IfModule>
+</FilesMatch>
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+#img.blutopia.ca will map to the folder {root}/img/
+RewriteCond %{HTTP:Host} ^(?:img\.blutopia\.ca)?$
+RewriteCond %{REQUEST_URI} !^/img/
+RewriteRule ^(.*) img/$1 [NC,L,NS]
+
+#downloads.blutopia.ca will map to the folder {root}/downloads/
+RewriteCond %{HTTP:Host} ^(?:downloads\.blutopia\.ca)?$
+RewriteCond %{REQUEST_URI} !^/downloads/
+RewriteRule ^(.*) downloads/$1 [NC,L,NS]
+
+#dynmap.blutopia.ca will map to the folder {root}/dynmap/ 
+RewriteCond %{HTTP:Host} ^(?:dynmap\.blutopia\.ca)?$
+RewriteCond %{REQUEST_URI} !^/dynmap/
+RewriteRule ^(.*) dynmap/$1 [NC,L,NS]
+
+#blutonium.blutopia.ca will map to the folder {root}/blutonium/ 
+RewriteCond %{HTTP:Host} ^(?:blutonium\.blutopia\.ca)?$
+RewriteCond %{REQUEST_URI} !^/blutonium/
+RewriteRule ^(.*) blutonium/$1 [NC,L,NS]
+
+
+ErrorDocument 404 /codes/404.html
+ErrorDocument 400 /codes/400.html
+ErrorDocument 401 /codes/401.html
+ErrorDocument 403 /codes/403.html
+ErrorDocument 500 /codes/500.html
