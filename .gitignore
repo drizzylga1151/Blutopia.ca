@@ -4,3 +4,6 @@ style.css
 dynmap/index.html
 style.css
 .vscode/sftp.json
+/blutonium/api/vendor/*
+/blutonium/api/.env
+
